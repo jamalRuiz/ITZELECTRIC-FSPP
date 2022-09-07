@@ -16,12 +16,9 @@ function Cars() {
 
   return (
     <div className="Cars" >
-          <section>
             {cars.map((car) => {
               return <Car key={car.id} car={car} />;
             })}
-          </section>
-
     </div>
   );
 }
