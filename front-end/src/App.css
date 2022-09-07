@@ -6,14 +6,11 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 1em;
-  box-shadow: 4px 4px 4px white;
+  box-shadow: 4px 4px 4px rgb(0, 0, 0);
   margin-bottom: 15px;
   font-family: "Times New Roman", Times, serif;
 }
-.Home {
-  color: rgb(14, 184, 14);
-  text-align: center;
-}
+
 
 .Link {
   background-color: black;
@@ -40,13 +37,20 @@
   color: white;
   float: left;
 }
-.App {
-  background-size: auto;
-  background-color: black;
+body {
   background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
 }
 
+.Home {
+  color: rgb(14, 184, 14);
+  text-align: center;
+  background-color: black;
+}
 
+.Cars{
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png")
+}
 
 @media (min-width: 375px) {
   .Cars {
@@ -82,4 +86,29 @@
     height: 200px;
     width: auto;
   }
+}
+.showDetails{
+  text-align: center;
+  color: aliceblue;
+}
+.showNavigation{
+display: flex;
+flex-direction: row;
+position: fixed;
+bottom: 0;
+left: 0;
+
+}
+.showBack{
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png")
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.table{
+  color: white;
 }

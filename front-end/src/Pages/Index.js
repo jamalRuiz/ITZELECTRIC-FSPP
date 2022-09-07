@@ -4,7 +4,7 @@ import Cars from '../Components/Cars'
 function Index() {
   return (
     <div>
-    <Cars/>
+    <Cars />
     </div>
   )
 }

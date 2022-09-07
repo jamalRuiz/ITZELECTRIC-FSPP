@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-function Car({ car }) {
+function Car({car}) {
   return (
     <div className="car">
       <Container>
@@ -15,19 +15,24 @@ function Car({ car }) {
               style={{ background: "#92828D" }}
               className="box"
             >
+              <Link to={`/electric/${car.id}`}>
+                <Button variant="secondary">Show Details
               <Card.Img
                 variant="top"
                 src={car.image}
                 className='carImages'
               />
+              </Button>
+                </Link>
               <Card.Body>
-                <Card.Title> </Card.Title>
+                <Card.Title>{`${car.year} ${car.make} ${car.model}`} </Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  <p>0 miles</p>
+                  <p>{car.drivetrain}</p>
+                  {`$${car.price.toLocaleString(undefined, { maximumFractionDigits: 2 })}`}
                 </Card.Text>
-                <Link to={`/electric/${car.id}`}>
-                  <Button variant="primary">Go somewhere</Button>
+                <Link to={`/electric/cart`}>
+                  <Button variant="primary" value={car.id} >Add to Cart</Button>
                 </Link>
               </Card.Body>
             </Card>
