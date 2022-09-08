@@ -1,6 +1,6 @@
 //Dependices
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { useState } from "react";
+import { useState } from "react";
 //Pages
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
@@ -17,6 +17,8 @@ import "./App.css";
 
 
 function App() {
+  const [cart, setCart] = useState([]);
+ 
   return (
     <div className="App">
       <Router>
@@ -25,11 +27,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About/>}/>
-            <Route path="/electric" element={<Index  />} />
+            <Route path="/electric" element={<Index cart={cart} setCart={setCart} />} />
             <Route path="/electric/:id" element={<Show />} />
             <Route path="/electric/:id/edit" element={<Edit />} />
             <Route path="/electric/new" element={<New />} />
-            <Route path="/electric/cart" element={<Cart />}/>
+            <Route path="/electric/cart" element={<Cart cart={cart}/>}/>
             <Route path="*" element={<FourOFour />} />
           </Routes>
         </main>
