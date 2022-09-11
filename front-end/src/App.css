@@ -112,3 +112,7 @@ left: 0;
 .table{
   color: white;
 }
+.cart{
+  text-align: center;
+  display: flex;
+}

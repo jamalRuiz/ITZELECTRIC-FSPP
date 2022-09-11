@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import Button from "react-bootstrap/esm/Button";
 function CarDetails() {
   const [car, setCar] = useState([]);
   let { id } = useParams();
@@ -35,6 +36,9 @@ function CarDetails() {
         <h1>${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(car.price))}</h1>
         <p>{`${car.year} ${car.make} ${car.model}`}</p>
         <p>0 miles</p>
+        <Link to={`/electric/cart`}>
+                  <Button variant="primary" value={car.id} >Add to Cart</Button>
+                </Link>
        </div>
        <Table style={{color: "whitesmoke"}} >
       <thead>

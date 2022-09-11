@@ -41,7 +41,7 @@ const Basket = () => {
     const listItemsToBuy = () =>
       cars.map((car) => (
         <div key={car.id}>
-          {car.make} -{car.price}
+          {car.make} - ${car.price}
           <button type="submit" onClick={() => addToCart(car)}>
             Add
           </button>
@@ -51,7 +51,7 @@ const Basket = () => {
     const listItemsInCart = () =>
       cars.map((item) => (
         <div key={item.name}>
-          ({amountOfItems(item.id)} x {item.price}){item.name}
+          ({amountOfItems(item.id)} x ${item.price}){item.name}
           <button type="submit" onClick={() => removeFromCart(item)}>
             Remove
           </button>
@@ -59,7 +59,7 @@ const Basket = () => {
       ));
   
     return (
-      <div>
+      <div className="cart">
         Shopping Cart
         <div>{listItemsToBuy()}</div>
         <div>CART</div>
@@ -67,6 +67,7 @@ const Basket = () => {
         <div>Total: ${cartTotal}</div>
         <div>
           <button onClick={() => setCart([])}>Clear</button>
+          <button>Checkout</button>
         </div>
       </div>
     );

@@ -1,113 +1,193 @@
-// // import React from "react";
-// // import axios from "axios";
-// // import { useState } from "react";
-// // import { useNavigate } from "react-router-dom";
-// // import Form from "react-bootstrap/Form";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Form from "react-bootstrap/Form";
 
-// const API = process.env.REACT_APP_API_URL;
-// function CarNewForm() {
-// //   let navigate = useNavigate();
-// //   const addCar = (newCar) => {
-// //     axios
-// //       .post(`${API}/electric`, newCar)
-// //       .then((response) => navigate(`/electric`))
-// //       .catch((error) => console.log(error));
-// //   };
-// //   const [newCar, setNewCar] = useState({
-// //     price:"",
-// //     make:"",
-// //     model:"",
-// //     year:"",
-// //     VIN :"",
-// //     stock:"",
-// //     country_origin:"",
-// //     exterior_color:"",
-// //     interior_color:"",
-// //     transmission:"",
-// //     drivetrain:"", 
-// //     total_range:"", 
-// //     engine:"",
-    
-// //   });
-// //   const handleTextChange = (event) => {
-// //     setSnack({ ...snack, [event.target.id]: event.target.value });
-// //   };
+const API = process.env.REACT_APP_API_URL;
+function CarNewForm() {
+  const navigate = useNavigate();
+  const [newCar, setNewCar] = useState({
+    price: "",
+    make: "",
+    model: "",
+    year: "",
+    vin: "",
+    stock: "",
+    country_origin: "",
+    exterior_color: "",
+    interior_color: "",
+    transmission: "",
+    drivetrain: "",
+    total_range: "",
+    engine: "",
+    image:""
+  });
+  const handleTextChange = (event) => {
+    setNewCar({ ...newCar, [event.target.id]: event.target.value });
+  };
 
-// //   const handleSubmit = (event) => {
-// //     event.preventDefault();
-// //     addSnack(snack);
-// //     navigate(`/snacks`);
-// //   };
-// //   return (
-// //     <div className="New">
-// //       <p>Snack Health is determined by</p>
-// //         <ul>
-// //           <li>Protein is above 5</li>
-// //           <li>Or Fiber is above 5</li>
-// //           <li>and Sugar is less than 5</li>
-// //         </ul>
-// //       <Form onSubmit={handleSubmit}>
-// //         <Form.Group>
-// //           <Form.Label htmlFor="name">Snack Name</Form.Label>
-// //           <Form.Control
-// //             id="name"
-// //             className="mb-3"
-// //             type="text"
-// //             value={snack.name}
-// //             placeholder="Name of Snack"
-// //             onChange={handleTextChange}
-// //             required
-// //           ></Form.Control>
-// //         </Form.Group>
-// //         <Form.Group>
-// //           <Form.Label htmlFor="fiber">Fiber</Form.Label>
-// //           <Form.Control
-// //             id="fiber"
-// //             type="number"
-// //             value={snack.fiber}
-// //             placeholder="0"
-// //             required
-// //             onChange={handleTextChange}
-// //           ></Form.Control>
-// //         </Form.Group>
-// //         <Form.Group>
-// //           <Form.Label htmlFor="protein">Protein</Form.Label>
-// //           <Form.Control
-// //             id="protein"
-// //             type="number"
-// //             value={snack.protein}
-// //             placeholder="0"
-// //             required
-// //             onChange={handleTextChange}
-// //           ></Form.Control>
-// //         </Form.Group>
-// //         <Form.Group>
-// //           <Form.Label htmlFor="added_sugar">Added Sugar</Form.Label>
-// //           <Form.Control
-// //             id="added_sugar"
-// //             value={snack.added_sugar}
-// //             type="number"
-// //             placeholder="0"
-// //             required
-// //             onChange={handleTextChange}
-// //           ></Form.Control>
-// //         </Form.Group>
-// //         <Form.Group>
-// //           <Form.Label for="image">Image</Form.Label>
-// //           <Form.Control
-// //             id="image"
-// //             value={snack.image}
-// //             pattern="http[s]*://.+"
-// //             type="text"
-// //             placeholder="http://"
-// //             required
-// //             onChange={handleTextChange}
-// //           ></Form.Control>
-// //         </Form.Group>
-// //        <input type="submit"/>
-// //       </Form>
-// //     </div>
-// //   );
-// // }
+  const addCar = (car) => {
+    axios
+      .post(`${API}/electric`, car)
+      .then(() => navigate(`/electric`))
+      .catch((error) => console.log(error));
+  };
+  
 
-// export default CarNewForm;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addCar(newCar);
+    navigate(`/electric`);
+  };
+  return (
+    <div className="New">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label htmlFor="price">Price</Form.Label>
+          <Form.Control
+            id="price"
+            className="mb-3"
+            type="number"
+            value={newCar.price}
+            onChange={handleTextChange}
+            required
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="make">Make</Form.Label>
+          <Form.Control
+            id="make"
+            type="make"
+            value={newCar.make}
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="model">Model</Form.Label>
+          <Form.Control
+            id="model"
+            type="text"
+            value={newCar.model}
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="year">Year</Form.Label>
+          <Form.Control
+            id="year"
+            value={newCar.year}
+            type="number"
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="vin">VIN</Form.Label>
+          <Form.Control
+            id="vin"
+            value={newCar.vin}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="stock">Stock</Form.Label>
+          <Form.Control
+            id="stock"
+            value={newCar.stock}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="country_origin">Counry of Orgin</Form.Label>
+          <Form.Control
+            id="country_origin"
+            value={newCar.country_origin}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="exterior_color">Exterior Color</Form.Label>
+          <Form.Control
+            id="exterior_color"
+            value={newCar.exterior_color}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="interior_color">Interior Color</Form.Label>
+          <Form.Control
+            id="interior_color"
+            value={newCar.interior_color}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor=" transmission">Transmission</Form.Label>
+          <Form.Control
+            id="transmission"
+            value={newCar.transmission}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="drivetrain">Drivetrain</Form.Label>
+          <Form.Control
+            id="drivetrain"
+            value={newCar.drivetrain}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="total_range">Total Range</Form.Label>
+          <Form.Control
+            id="total_range"
+            value={newCar.total_range}
+            type="number"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="engine">Engine</Form.Label>
+          <Form.Control
+            id="engine"
+            value={newCar.engine}
+            type="text"
+            required
+            onChange={handleTextChange}
+          ></Form.Control> 
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="image">Image</Form.Label>
+          <Form.Control
+            id="image"
+            value={newCar.image}
+            type="text"
+            placeholder="http://"
+            required
+            onChange={handleTextChange}
+          ></Form.Control>
+        </Form.Group>
+        <input type="submit" value="submit" />
+      </Form>
+    </div>
+  );
+}
+
+export default CarNewForm;

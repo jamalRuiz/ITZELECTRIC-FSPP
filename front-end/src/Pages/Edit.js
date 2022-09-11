@@ -1,8 +1,10 @@
 import React from 'react'
-
+import CarEditForm from '../Components/CarEditForm'
 function Edit() {
   return (
-    <div>Edit</div>
+    <div>
+      <CarEditForm/>
+    </div>
   )
 }
 
