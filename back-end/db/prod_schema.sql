@@ -8,7 +8,7 @@ CREATE TABLE electric(
     make TEXT,
     model TEXT,
     year INT,
-    VIN TEXT,
+    vin TEXT,
     stock TEXT,
     country_origin TEXT,
     exterior_color TEXT,
