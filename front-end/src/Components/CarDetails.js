@@ -32,7 +32,7 @@ function CarDetails() {
         <aside> 
         </aside>
       <div className="showDetails" >
-        <img className="center" src={car.image} alt={car.make} height={500} width={500} />
+        <img className="center" src={car.image} alt={car.make}   />
         <h1>${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(car.price))}</h1>
         <p>{`${car.year} ${car.make} ${car.model}`}</p>
         <p>0 miles</p>
