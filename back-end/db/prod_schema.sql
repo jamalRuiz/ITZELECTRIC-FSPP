@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS electric_dev;
-CREATE DATABASE electric_dev;
-\c electric_dev;
+DROP DATABASE IF EXISTS ddab7tkopbd62;
+CREATE DATABASE ddab7tkopbd62;
+\c ddab7tkopbd62;
 
 CREATE TABLE electric(
     id SERIAL PRIMARY KEY,
